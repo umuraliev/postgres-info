@@ -51,8 +51,14 @@ DROP COLUMN - удалить поле
 ```
 
 > primary key(pk) - первичный ключ
+
+
 > это ограничение, которое мы указываем на те поля, которые должны быть уникальными для того чтобы потом их использовать в связях(например id)
+
+
 > foreign key(fk) - внешний ключ
+
+
 > это ограничение, которое мы указываем на те поля, которые будут ссылаться на pk в другой таблице, для создания связи
 
 
@@ -61,7 +67,7 @@ CREATE TABLE author(
     id SERIAL PRIMARY KEY,
     first_name varchar(50),
     last_name varchar(50) 
-)
+);
 CREATE TABLE book(
     id SERIAL,
     title varchar(100),
@@ -97,4 +103,5 @@ FROM author JOIN book ON author.id = book.author_id;
 ```sql 
 UPDATE author
 SET name = 'Alexander', surname = 'Duma' where id = 3;
+
 ```
