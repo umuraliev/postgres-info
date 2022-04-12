@@ -73,21 +73,24 @@ CREATE TABLE book(
 ```
 
 > JOIN - инструкция, которая позволяет в запросах SELECT брать данные из нескольких таблиц
+
+
 > INNER JOIN (JOIN) - когда достаются только те записи, у которых есть полная связь
+
+
 > FULL JOIN - когда достаются все записи со всех таблиц
+
+
 > LEFT JOIN - когда достаются все записи с 'левой' таблицы и также те записи с полной связью
+
+
 > RIGHT JOIN - когда достаются все записи с 'левой' таблицы и также те записи с полной связью
+
+
 ```sql
 SELECT author.first_name, book.title
 FROM author JOIN book ON author.id = book.author_id;
 
-
-```
-
-
-```sql
-ALTER TABLE author
-ADD CONSTRAINT pk_id PRIMARY KEY(id);
 
 ```
 
