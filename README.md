@@ -99,8 +99,8 @@ CREATE TABLE flag (
 CREATE TABLE country(id serial primary key,
 title varchar(50),
 gimn text,
-flag_id int unique 
-FOREIGN KEY fk_country_flag REFERENCES flag(id) 
+flag_id int unique,
+CONSTRAINT fk_country_flag FOREIGN KEY flag_id REFERENCES flag(id)  
 );
 
 ```
@@ -116,7 +116,10 @@ CREATE TABLE post (id serial primary key,
 title varchar(100),
 body text,
 photo text,
-account_id int FOREIGN KEY fk_acc_post REFERENCES account(id));
+account_id int,
+CONSTRAINT fk_acc_post
+FOREIGN KEY account_id REFERENCES account(id)
+);
 ```
 
 ### Many to many
@@ -134,8 +137,11 @@ CREATE TABLE pacient (
 );
 
 CREATE TABLE doctor_patient(
-    doctor_id int FOREIGN KEY fk_doctor REFERENCES doctor(id),
-    pacient_id int FOREIGN KEY fk_pacient REFERENCES pacient(id)
+    doctor_id int,
+    CONSTRAINT fk_doctor
+    FOREIGN KEY doctor_id REFERENCES doctor(id),
+    pacient_id int,
+    CONSTRAINT fk_pacient FOREIGN KEY pacient_id REFERENCES pacient(id)
 );
 
 ```
