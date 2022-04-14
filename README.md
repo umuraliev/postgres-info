@@ -100,7 +100,7 @@ CREATE TABLE country(id serial primary key,
 title varchar(50),
 gimn text,
 flag_id int unique,
-CONSTRAINT fk_country_flag FOREIGN KEY flag_id REFERENCES flag(id)  
+CONSTRAINT fk_country_flag FOREIGN KEY (flag_id) REFERENCES flag(id)  
 );
 
 ```
@@ -118,7 +118,7 @@ body text,
 photo text,
 account_id int,
 CONSTRAINT fk_acc_post
-FOREIGN KEY account_id REFERENCES account(id)
+FOREIGN KEY (account_id) REFERENCES account(id)
 );
 ```
 
@@ -130,7 +130,7 @@ CREATE TABLE doctor(
     last_name varchar(50)
 );
 
-CREATE TABLE pacient (
+CREATE TABLE patient (
     id serial primary key,
     first_name varchar(25),
     last_name varchar(50)
@@ -139,9 +139,9 @@ CREATE TABLE pacient (
 CREATE TABLE doctor_patient(
     doctor_id int,
     CONSTRAINT fk_doctor
-    FOREIGN KEY doctor_id REFERENCES doctor(id),
-    pacient_id int,
-    CONSTRAINT fk_pacient FOREIGN KEY pacient_id REFERENCES pacient(id)
+    FOREIGN KEY (doctor_id) REFERENCES doctor(id),
+    patient_id int,
+    CONSTRAINT fk_pacient FOREIGN KEY (patient_id) REFERENCES patient(id)
 );
 
 ```
