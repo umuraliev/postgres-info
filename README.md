@@ -1,3 +1,5 @@
+# slashcommands
+
 
 *`\c` - показывает в какой бд мы находимся и через какого юзера
 
@@ -10,6 +12,9 @@
 *`\l` - показывает все бд
 
 *`\q` - выход
+
+
+
 
 
 ```sql
@@ -78,6 +83,8 @@ CREATE TABLE book(
 
 ```
 
+# JOINS
+
 > JOIN - инструкция, которая позволяет в запросах SELECT брать данные из нескольких таблиц
 
 
@@ -103,5 +110,19 @@ FROM author JOIN book ON author.id = book.author_id;
 ```sql 
 UPDATE author
 SET name = 'Alexander', surname = 'Duma' where id = 3;
+
+```
+
+# IMPORT EXPORT данных
+write from file to db
+
+``` bash
+psql db_name < file.sql
+
+```
+write from db to file 
+
+``` bash 
+pg_dump db_name > file.sql
 
 ```
